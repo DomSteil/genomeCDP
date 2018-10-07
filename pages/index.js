@@ -41,6 +41,11 @@ import StartButton from '../components/StartButton.js';
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
+const { userAgent: ua} = navigator
+const isIOS = ua.includes('iPhone')
+const isAndroid = ua.includes('Android')
+
+
 const { currentProvider: cp } = global.web3
 const isToshi = !!cp.isToshi
 
