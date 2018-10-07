@@ -1,0 +1,1 @@
+<ContractData contract="GenomeToken" method="getGenome" />
