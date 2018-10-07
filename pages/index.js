@@ -41,6 +41,10 @@ import StartButton from '../components/StartButton.js';
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
+const { currentProvider: cp } = global.web3
+const isToshi = !!cp.isToshi
+
+
 
 store.subscribe(() =>
   console.log(store.getState())
@@ -93,8 +97,8 @@ export const started = () => ({
 
 global.config = {
     rpc: {
-      host: "https://kovan.infura.io/FoggkEz1SP1DzdhkXUr8",
-      port: "8545"
+      host: "127.0.0.1",
+      port: "7545"
     }
   }
   
@@ -108,7 +112,7 @@ global.config = {
   
   // IPFS Config Globals
   global.ipfs = ipfs;
-  global.ipfsHost = 'https://ipfs.infura.io',
+  global.ipfsHost = 'localhost',
   global.ipfsAPIPort = '5001',
   global.ipfsWebPort = '8080',
   global.ipfsDataHost = "http://" + ipfsHost + ':' + ipfsWebPort + "/ipfs";
@@ -125,12 +129,12 @@ global.config = {
         });
 
 
-global.makerKovan = Maker.create('kovan', {
-         privateKey: '0x18fbabbf93480a5e4495cfa6dfeca0b64e8031de4801381a02af6c0828bd71bf',
-        provider: {
-            infuraApiKey: 'FoggkEz1SP1DzdhkXUr8'
-      }
-});
+//global.makerKovan = Maker.create('kovan', {
+ //        privateKey: '0x18fbabbf93480a5e4495cfa6dfeca0b64e8031de4801381a02af6c0828bd71bf',
+   //     provider: {
+    //        infuraApiKey: 'FoggkEz1SP1DzdhkXUr8'
+     // }
+//});
 
 
 
@@ -175,7 +179,7 @@ export default () => (
 <Paper>
 <List component="nav">
 <ListItem button>
-  <ListItemText primary="CDP ID: 098213" />
+  <ListItemText primary="CDP ID: 028" />
 </ListItem>
 <Divider light />
 <ListItem button>
